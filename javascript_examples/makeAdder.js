@@ -1,7 +1,8 @@
 /**
  * Creating a function that increments from a given (closed-over) starting value, using a closure
+ * makeAdder is essentially a function factoy: It creates a function that increments from a given,
+ * closed over value
  */
-
 function makeAdder(x) {
   return function(y) {
     return x + y;

@@ -1,7 +1,8 @@
 object Factorials {
   def main(args: Array[String]): Unit = {
-    factorial(100000000);
-    println("Hello, world!")
+    println(factRec(100000));     // StackOverflow
+    println(factorial(100000));   // StackOverflow
+    println(factTailRec(100000)); // Tail call optimization kicks in!
   }
 
   def factIter(n: Int): Int = {
@@ -16,10 +17,10 @@ object Factorials {
   
   def factorial(n: Int): Int = n match {
     case 0 => 1
-    case _ => { println("aaa"); n * factorial(n-1)}
+    case _ => n * factorial(n-1)
 }
 
-  def factRec(n: Int): Int = {
+  def factRec(n: BigInt): BigInt = {
     if (n <= 0) {
       return 1
     } else {
@@ -37,5 +38,4 @@ object Factorials {
     }
     return f(i, 1)
   }
-
 }
